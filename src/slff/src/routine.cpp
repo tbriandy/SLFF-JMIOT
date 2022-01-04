@@ -815,7 +815,7 @@ int routine_init()
     help.log_warn(R"(
  _______________________
 / Single Lane Free Flow \
-\ IoT Lab Jasa Marga    /
+\ IoT Lab Jasa Marga 1.0    /
  -----------------------
     \
      \
