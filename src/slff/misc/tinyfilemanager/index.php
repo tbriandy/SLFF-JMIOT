@@ -447,30 +447,30 @@ if (isset($_POST['ajax']) && !FM_READONLY) {
         exit();
     }
 
-    // backup files
-    if (isset($_POST['type']) && $_POST['type'] == "backup" && !empty($_POST['file'])) {
-        $fileName = $_POST['file'];
-        $fullPath = FM_ROOT_PATH . '/';
-        if (!empty($_POST['path'])) {
-            $relativeDirPath = fm_clean_path($_POST['path']);
-            $fullPath .= "{$relativeDirPath}/";
-        }
-        $date = date("dMy-His");
-        $newFileName = "{$fileName}-{$date}.bak";
-        $fullyQualifiedFileName = $fullPath . $fileName;
-        try {
-            if (!file_exists($fullyQualifiedFileName)) {
-                throw new Exception("File {$fileName} not found");
-            }
-            if (copy($fullyQualifiedFileName, $fullPath . $newFileName)) {
-                echo "Backup {$newFileName} created";
-            } else {
-                throw new Exception("Could not copy file {$fileName}");
-            }
-        } catch (Exception $e) {
-            echo $e->getMessage();
-        }
-    }
+    // backup files 
+    // if (isset($_POST['type']) && $_POST['type'] == "backup" && !empty($_POST['file'])) {
+    //     $fileName = $_POST['file'];
+    //     $fullPath = FM_ROOT_PATH . '/';
+    //     if (!empty($_POST['path'])) {
+    //         $relativeDirPath = fm_clean_path($_POST['path']);
+    //         $fullPath .= "{$relativeDirPath}/";
+    //     }
+    //     $date = date("dMy-His");
+    //     $newFileName = "{$fileName}-{$date}.bak";
+    //     $fullyQualifiedFileName = $fullPath . $fileName;
+    //     try {
+    //         if (!file_exists($fullyQualifiedFileName)) {
+    //             throw new Exception("File {$fileName} not found");
+    //         }
+    //         if (copy($fullyQualifiedFileName, $fullPath . $newFileName)) {
+    //             echo "Backup {$newFileName} created";
+    //         } else {
+    //             throw new Exception("Could not copy file {$fileName}");
+    //         }
+    //     } catch (Exception $e) {
+    //         echo $e->getMessage();
+    //     }
+    // }
 
     // Save Config
     if (isset($_POST['type']) && $_POST['type'] == "settings") {

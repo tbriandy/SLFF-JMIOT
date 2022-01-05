@@ -2,7 +2,7 @@
 set -e
 
 REPO_PATH="$HOME/SLFF-App-Docker"
-REPO_URL="https://github.com/protanjung/SLFF-App-Docker.git"
+REPO_URL="https://github.com/tbriandy/SLFF-JMIOT.git"
 
 # If the repo not exists, clone it
 # Else, pull the latest changes
