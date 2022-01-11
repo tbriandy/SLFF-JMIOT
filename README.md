@@ -1,14 +1,4 @@
-<p align="center">
-    <img src="https://i.imgur.com/S8pm7jM.png" width="200" height="200">
-</p>
-
-**GitHub Stat(s):**  
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size//tbriandy/SLFF-JMIOT?logo=github) ![GitHub all releases](https://img.shields.io/github/downloads//tbriandy/SLFF-JMIOT/total?logo=github) [![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fprotanjung%2Fslff-app-docker%2Fbadge%3Fref%3Dmain&style=flat)](https://actions-badge.atrox.dev//tbriandy/SLFF-JMIOT/goto?ref=main)
-
-**DockerHub Stat(s):**  
-![Docker Pulls](https://img.shields.io/docker/pulls//tbriandy/SLFF-JMIOT?logo=docker) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size//tbriandy/SLFF-JMIOT/latest?logo=docker) ![Docker Image Version (latest by date)](https://img.shields.io/docker/v//tbriandy/SLFF-JMIOT?arch=amd64&logo=docker&sort=date)
-
-Dengan Rahmat Tuhan Yang Maha Kuasa. Dengan ini kami membuat aplikasi Control Unit untuk transaksi jalan tol tanpa berhenti menggunakan teknologi RFID. Demikian agar dapat bermanfaat untuk seluruh rakyat Indonesia.
+<
 
 # Persiapan Control Unit
 - ## Konfigurasi dan Instalasi Awal
