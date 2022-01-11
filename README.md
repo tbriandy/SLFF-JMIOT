@@ -1,4 +1,3 @@
-<
 
 # Persiapan Control Unit
 - ## Konfigurasi dan Instalasi Awal
