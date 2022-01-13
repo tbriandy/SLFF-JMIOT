@@ -815,19 +815,21 @@ int routine_init()
     help.log_warn(R"(
  _______________________
 / Single Lane Free Flow \
-\ IoT Lab Jasa Marga 1.0    /
+\ IoT Lab Jasa Marga v1 /
  -----------------------
     \
      \
-       /\   /\
-      //\\_//\\     ____
-      \_     _/    /   /
-       / - * \    /^^^]
-       \_\O/_/    [   ]
-        /   \_    [   /
-        \     \_  /  /
-         [ [ /  \/ _/
-        _[ [ \  /_/
+       ,_     _,
+       |\\___//|
+       |=6   6=|
+       \=._Y_.=/
+        )  `  (    ,
+       /       \  ((
+       |       |   ))    
+      /| |   | |\_//
+      \| |._.| |/-`
+       '"'   '"'
+
 )");
 
     slff_json_path = getenv("HOME") + std::string("/slff-data/slff.json");
@@ -1469,3 +1471,4 @@ std::string rfid_decrypt(std::string input)
 
     return boost::algorithm::hex(str);
 }
+
