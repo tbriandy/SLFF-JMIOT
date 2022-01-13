@@ -3,7 +3,11 @@
         {
             "name": "Mac",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/src/slff/include/slff",
+                "${workspaceFolder}/src/slff/include/lwrb",
+                "${workspaceFolder}/src/slff/include/crc",
+                "${workspaceFolder}/src/slff/include/json",
+                "${workspaceFolder}/src/slff/include"
             ],
             "defines": [],
             "macFrameworkPath": [
