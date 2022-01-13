@@ -1,10 +1,15 @@
 
 # Persiapan Control Unit
 - ## Konfigurasi dan Instalasi Awal
-  - Melakukan konfigurasi dan instalasi awal (menggunakan script)
+  - Melakukan konfigurasi dan instalasi awal (menggunakan script x86/amd64)
     ```bash
     wget -O - https://raw.githubusercontent.com//tbriandy/SLFF-JMIOT/main/slff_prepare.sh | bash
     ```
+    - Melakukan konfigurasi dan instalasi awal (menggunakan script arm64)
+    ```bash
+    wget -O - https://raw.githubusercontent.com//tbriandy/SLFF-JMIOT/main/slff_prepare_arm.sh | bash
+    ```
+
   - Mematikan dan menyalakan ulang Control Unit
     ```bash
     sudo reboot
