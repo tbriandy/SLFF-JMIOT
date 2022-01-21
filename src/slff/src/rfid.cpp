@@ -107,7 +107,7 @@ const uint8_t invengo_response[] =
 
 //=====Frame CU1
 const uint8_t cu1_start[] =
-    {0x10, 0x20};
+    {0x10, 0x02};
 const uint8_t cu1_stop[] =
     {0x10, 0x03};
 const uint8_t cu1_header_tx[] =
@@ -272,7 +272,8 @@ int rfid_routine()
             rfid_parser(serial_data);
         }
 
-        if (serial_return < 0) return -1;
+        if (serial_return < 0) 
+			return -1;
     }
 
     return 0;
