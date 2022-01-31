@@ -30,7 +30,8 @@
   - Memastikan virtual Com [ttyS*] pada CU 
       ```bash
       dmesg | grep ttyS
-      ```
+
+  - Masukan data dibawah kedalam file slff.yaml
       ```yaml
       # -------------------------------------
       # Semanggi 1 Gardu 2
