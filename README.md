@@ -27,11 +27,11 @@
       ```bash
       nano ~/slff-data/slff.yaml
       ```
-      ```yaml
   - Memastikan virtual Com [ttyS*] pada CU 
       ```bash
       dmesg | grep ttyS
       ```
+      ```yaml
       # -------------------------------------
       # Semanggi 1 Gardu 2
       # -------------------------------------
