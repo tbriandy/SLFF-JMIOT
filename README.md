@@ -127,6 +127,7 @@
     ```bash
     nmtui
     ```
+  - Konfigurasi network untuk x86
   - Masuk ke folder **/etc/netplan/**
     ```bash
     cd /etc/netplan/
