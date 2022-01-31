@@ -1,7 +1,7 @@
 
 # Persiapan Control Unit
 - ## Konfigurasi dan Instalasi Awal
-  - Melakukan konfigurasi dan instalasi awal (menggunakan script x86/amd64)
+    - Melakukan konfigurasi dan instalasi awal (menggunakan script x86/amd64)
     ```bash
     wget -O - https://raw.githubusercontent.com//tbriandy/SLFF-JMIOT/main/slff_prepare.sh | bash
     ```
@@ -10,7 +10,7 @@
     wget -O - https://raw.githubusercontent.com//tbriandy/SLFF-JMIOT/main/slff_prepare_arm.sh | bash
     ```
 
-  - Mematikan dan menyalakan ulang Control Unit
+    - Mematikan dan menyalakan ulang Control Unit
     ```bash
     sudo reboot
     ```
@@ -28,6 +28,10 @@
       nano ~/slff-data/slff.yaml
       ```
       ```yaml
+  - Memastikan virtual Com [ttyS*] pada CU 
+      ```bash
+      dmesg | grep ttyS
+      ```
       # -------------------------------------
       # Semanggi 1 Gardu 2
       # -------------------------------------
@@ -118,6 +122,10 @@
           baud: 19200
       ```
 - ## IP Address
+  - Apabila menggunakan type arm64 untuk perubahan IP menggunakan Network Manager
+    ```bash
+    nmtui
+    ```
   - Masuk ke folder **/etc/netplan/**
     ```bash
     cd /etc/netplan/
