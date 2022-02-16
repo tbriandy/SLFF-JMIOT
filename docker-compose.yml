@@ -17,8 +17,8 @@ services:
 
   # MySQL
   mysql:
-    container_name: mysql
-    image: mariadb
+    container_name: mariadb
+    image: mariadb:10.7.1-focal
     restart: always
     privileged: false
     ports:
