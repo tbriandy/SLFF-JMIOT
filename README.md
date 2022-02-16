@@ -134,7 +134,7 @@
     ```
   - Mengubah file yang ada di folder **/etc/netplan/**, misal **00-installer-config.yaml**
     ```bash
-    sudo nano 00-installer-config.yaml
+    sudo nano /etc/netplan/00-installer-config.yaml
     ```
     ```yaml
     network:
