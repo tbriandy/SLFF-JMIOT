@@ -54,4 +54,4 @@ RUN /bin/bash -c 'chmod +x /root/slff/src/slff/scripts/*'
 RUN /bin/bash -c 'source "/opt/ros/$ROS_DISTRO/setup.bash" && cd /root/slff && catkin_make'
 
 ENTRYPOINT [ "/slff_entrypoint.sh" ]
-CMD [ "roslaunch", "slff", "slff.launch" ]c
+CMD [ "roslaunch", "slff", "slff.launch" ]
