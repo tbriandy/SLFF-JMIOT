@@ -42,10 +42,9 @@ COPY ./slff_entrypoint.sh /slff_entrypoint.sh
 RUN rm -rf /var/www/html/*
 COPY ./src/slff/misc/tinyfilemanager /var/www/html
 
-#Setup rclone
-#RUN curl https://rclone.org/install.sh | bash
-#COPY ./src/slff/misc/rclone/rclone.conf /root/.config/rclone/rclone.conf
-#
+# #Setup rclone
+# RUN curl https://rclone.org/install.sh | bash
+# COPY ./src/slff/misc/rclone/rclone.conf /root/.config/rclone/rclone.conf
 
 # Executable permission
 RUN /bin/bash -c 'chmod +x /slff_entrypoint.sh'
@@ -55,4 +54,4 @@ RUN /bin/bash -c 'chmod +x /root/slff/src/slff/scripts/*'
 RUN /bin/bash -c 'source "/opt/ros/$ROS_DISTRO/setup.bash" && cd /root/slff && catkin_make'
 
 ENTRYPOINT [ "/slff_entrypoint.sh" ]
-CMD [ "roslaunch", "slff", "slff.launch" ]
+CMD [ "roslaunch", "slff", "slff.launch" ]c
