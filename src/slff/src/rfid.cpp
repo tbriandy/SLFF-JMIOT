@@ -546,15 +546,15 @@ void rfid_entry(std::vector<uint8_t> epc, std::vector<uint8_t> tid, std::vector<
 
     uint8_t isNew = 1;
 
-    // Menghapus rfid yang umurnya lebih dari 60 detik
+    // Menghapus rfid yang umurnya lebih dari 10 detik
     for (int i = 0; i < rfid_pool.size(); i++)
-        if (ros::Time::now().toSec() - rfid_pool[i].time > 60)
+        if (ros::Time::now().toSec() - rfid_pool[i].time > 10)
         {
             rfid_pool.erase(rfid_pool.begin() + i--);
             isNew = 1;
         }
 
-    // Memperbarui rfid yang umurnya kurang dari 60 detik
+    // Memperbarui rfid yang umurnya kurang dari 10 detik
     for (int i = 0; i < rfid_pool.size(); i++)
         if (rfid_pool[i].tid == tid)
         {
