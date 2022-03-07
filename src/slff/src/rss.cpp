@@ -136,7 +136,7 @@ bool cllbck_ser_rss_store(slff::rss_store::Request &req, slff::rss_store::Respon
         ADD_FORM(mime, mimepart, "mid", mid.c_str());
         // RFID flag
         ADD_FORM(mime, mimepart, "status_code", std::to_string(req.rfid_flag).c_str());
-        if (req.metode_pembayaran == 3)
+        if (req.metode_pembayaran == 7) // perubahan metode 3 ke 7
             ADD_FORM(mime, mimepart, "status_deteksi", "0")
         else
             ADD_FORM(mime, mimepart, "status_deteksi", "1");
