@@ -42,9 +42,10 @@ COPY ./slff_entrypoint.sh /slff_entrypoint.sh
 RUN rm -rf /var/www/html/*
 COPY ./src/slff/misc/tinyfilemanager /var/www/html
 
-# #Setup rclone
-# RUN curl https://rclone.org/install.sh | bash
-# COPY ./src/slff/misc/rclone/rclone.conf /root/.config/rclone/rclone.conf
+#Setup rclone
+#RUN curl https://rclone.org/install.sh | bash
+#COPY ./src/slff/misc/rclone/rclone.conf /root/.config/rclone/rclone.conf
+#
 
 # Executable permission
 RUN /bin/bash -c 'chmod +x /slff_entrypoint.sh'
