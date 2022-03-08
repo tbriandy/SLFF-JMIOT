@@ -4,7 +4,7 @@ services:
   # SLFF
   slff:
     container_name: slff
-    image: tbriandy/slff-jmiot:1.4
+    image: tbriandy/slff-jmiot:2
     restart: always
     privileged: true
     ports:
