@@ -418,7 +418,7 @@ void cllbck_tim_51hz(const ros::TimerEvent &event)
             //-------------------------
 
             // Ulangi GTO_NOTIFICATION setiap 20 detik
-            if (ros::Time::now().toSec() - kr[i].gto_notification_timer >= kr[i].gto_notification_retry * 20)
+            if (ros::Time::now().toSec() - kr[i].gto_notification_timer >= kr[i].gto_notification_retry * 6)
             {
                 help.log_error("====> GTO_NOTIFICATION %d", ++kr[i].gto_notification_retry);
                 help_gto_notification(i);
@@ -439,9 +439,9 @@ void cllbck_tim_51hz(const ros::TimerEvent &event)
             //-------------------------
 
             // Jika timeout tercapai
-            if (ros::Time::now().toSec() - kr[i].gto_notification_timer >= 120)
+            if (ros::Time::now().toSec() - kr[i].gto_notification_timer >= 30)
             {
-                help.log_error("====> Timeout 120 detik tercapai");
+                help.log_error("====> Timeout 30 detik tercapai");
 
                 kr.pop_front();
 
@@ -1350,9 +1350,9 @@ void queue_entry()
     // Filter kendaraan yang baru saja melakukan transaksi
     //====================================================
 
-    // Menghapus rfid yang umurnya lebih dari 120 detik
+    // Menghapus rfid yang umurnya lebih dari 120 detik diubah menjadi 60 detik
     for (int i = 0; i < rfid_present_pool.size(); i++)
-        if (ros::Time::now().toSec() - rfid_present_pool[i].time > 120)
+        if (ros::Time::now().toSec() - rfid_present_pool[i].time > 30)
         {
             rfid_present_pool.erase(rfid_present_pool.begin() + i--);
             continue;
