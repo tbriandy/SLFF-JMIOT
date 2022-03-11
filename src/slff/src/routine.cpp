@@ -813,10 +813,10 @@ int routine_init()
     ros::Duration(2.5).sleep();
 
     help.log_warn(R"(
- _______________________
-/ Single Lane Free Flow \
-\   IoT Lab Jasa Marga  /
- -----------------------
+ ______________________________
+/ Single Lane Free Flow        \
+\   IoT Lab Jasa Marga Notran  /
+ ------------------------------
     \
      \
        ,_     _,
