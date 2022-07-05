@@ -483,7 +483,7 @@ void cllbck_tim_52hz(const ros::TimerEvent &event)
         if (kr[i].algorithm_state == STATE_RSS_STORE)
         {
             // Jika metode pembayaran RFID atau notran
-            if (kr[i].metode_pembayaran == 0 || kr[i].metode_pembayaran == 7) perubahan metode 3 ke 7
+            if (kr[i].metode_pembayaran == 0 || kr[i].metode_pembayaran == 7) //perubahan metode 3 ke 7
             {
                 // Jika berhasil
                 if (help_rss_store(i))
