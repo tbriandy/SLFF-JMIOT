@@ -519,6 +519,7 @@ void gto_parser(uint8_t data)
                 MEMCPY(&msg_gto_store.report_day, rx_buffer + 39, 1);
                 MEMCPY(&msg_gto_store.report_month, rx_buffer + 40, 1);
                 MEMCPY(&msg_gto_store.report_year, rx_buffer + 41, 1);
+                MEMCPY(&msg_gto_store.kode_ruas, rx_buffer + 42, 1);
                 MEMCPY(&msg_gto_store.no_shift, rx_buffer + 43, 1);
                 MEMCPY(&msg_gto_store.no_perioda, rx_buffer + 44, 1);
                 MEMCPY(&msg_gto_store.no_resi, rx_buffer + 45, 4);

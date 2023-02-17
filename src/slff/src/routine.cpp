@@ -21,6 +21,7 @@
 #include "slff/rss_store.h"
 #include "slff/version.h"
 #include "json/json.hpp"
+#include "crc/sstream.h"
 #include <deque>
 
 //=====Prototype
@@ -74,6 +75,8 @@ int no_gerbang;
 bool auth_rfid;
 double gto_status_interval;
 double rfid_status_interval;
+std::string whitelist_pilot_test;
+std::string str;
 //=====Timer
 ros::Timer tim_50hz;
 ros::Timer tim_51hz;
@@ -232,6 +235,7 @@ int main(int argc, char **argv)
     NH.getParam("auth_rfid", auth_rfid);
     NH.getParam("gto_status_interval", gto_status_interval);
     NH.getParam("rfid_status_interval", rfid_status_interval);
+    NH.getParam("whitelist_pilot_test",whitelist_pilot_test);
     //=====Timer
     tim_50hz = NH.createTimer(ros::Duration(0.02), cllbck_tim_50hz);
     tim_51hz = NH.createTimer(ros::Duration(0.02), cllbck_tim_51hz);
@@ -391,9 +395,9 @@ void cllbck_tim_51hz(const ros::TimerEvent &event)
             //-------------------------
 
             // Jika timeout tercapai
-            if (ros::Time::now().toSec() - kr[i].gto_present_timer >= 3600)
+            if (ros::Time::now().toSec() - kr[i].gto_present_timer >= 120)
             {
-                help.log_error("====> Timeout 3600 detik tercapai");
+                help.log_error("====> Timeout 120 detik tercapai");
 
                 kr.pop_front();
 
@@ -418,7 +422,7 @@ void cllbck_tim_51hz(const ros::TimerEvent &event)
             //-------------------------
 
             // Ulangi GTO_NOTIFICATION setiap 20 detik
-            if (ros::Time::now().toSec() - kr[i].gto_notification_timer >= kr[i].gto_notification_retry * 20)
+            if (ros::Time::now().toSec() - kr[i].gto_notification_timer >= kr[i].gto_notification_retry * 10)
             {
                 help.log_error("====> GTO_NOTIFICATION %d", ++kr[i].gto_notification_retry);
                 help_gto_notification(i);
@@ -652,6 +656,18 @@ void cllbck_sub_rfid_tag(const slff::rfid_tagConstPtr &msg)
     help.log_info("EPC      = %s", rfid_epc.c_str());
     help.log_info("UserData = %s", rfid_userdata.c_str());
 
+    int sama=0;
+    
+    std::stringstream ss(whitelist_pilot_test.c_str());    
+     while (getline(ss, str, ';')){ 
+        if (str.compare(rfid_tid.c_str())==0){
+      
+            sama=1;
+            break;
+        }
+    }
+        
+
     // Jika enkripsi TID diperiksa
     if (auth_rfid)
     {
@@ -662,29 +678,41 @@ void cllbck_sub_rfid_tag(const slff::rfid_tagConstPtr &msg)
             help.log_info("Status   = Maintenance");
             help_cdp("RFID\nMNTNNC");
         }
-        else if (signature == "1378")
+        else if (sama == 1)
         {
-            // Key yang masuk
-            std::string keyA = rfid_epc.substr(4, 20);
-
-            // Key yang seharusnya
-            std::string keyB = rfid_encrypt(rfid_tid.substr(4, 20));
-
-            // Memeriksa key
-            if (keyA != keyB)
+            if (signature == "1378")
             {
-                help.log_info("Status   = Transaksi tidak valid");
-                help_cdp("RFID\nINVALID");
-            }
-            else
-            {
-                help.log_info("Status   = Transaksi valid");
-                queue_entry();
+                // Key yang masuk
+                std::string keyA = rfid_epc.substr(4, 20);
+
+                // Key yang seharusnya
+                std::string keyB = rfid_encrypt(rfid_tid.substr(4, 20));
+
+                // Memeriksa key
+                if (keyA != keyB)
+                {
+                    help.log_info("Status   = Transaksi tidak valid");
+                    help_cdp("RFID\nINVALID");
+                }
+                else
+                {
+                    help.log_info("Status   = Transaksi valid");
+                    queue_entry();
+                }
             }
         }
         else
         {
-            help.log_info("Status   = Bukan milik Jasamarga");
+            if (sama ==0)
+            {
+                help.log_info("Status   = bukan pilot tes");
+                help_cdp("NOT\nPILOT");
+            }
+            else
+            {
+                help.log_info("Status   = Bukan milik Jasamarga");
+            }
+            
         }
     }
     // Jika enkripsi TID tidak diperiksa
@@ -814,21 +842,17 @@ int routine_init()
 
     help.log_warn(R"(
  _______________________
-/ Single Lane Free Flow \
-\          JMTO         /
+/      LET IT FLO       \
+\ JMTO 3.5 (PLT-TEST)   /
  -----------------------
-    \
-     \
-       ,_     _,
-       |\\___//|
-       |=6   6=|
-       \=._Y_.=/
-        )  `  (    ,
-       /       \  ((
-       |       |   ))    
-      /| |   | |\_//
-      \| |._.| |/-`
-       '"'   '"'
+
+              _ |\_      
+               \` ..\  
+    REZ  __,.-" =__Y=
+        ."        )
+  _    /   ,    \/\_  _ 
+ ((____|    )_-\ \_-`(_)
+ `-----'`-----` `--`
 
 )");
 
