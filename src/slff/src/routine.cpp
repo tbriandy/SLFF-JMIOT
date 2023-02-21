@@ -580,7 +580,7 @@ void cllbck_tim_53hz(const ros::TimerEvent &event)
         pub_gto_status_request.publish(msg_gto_status_request);
 
         // Menampilkan summary
-        help.log_warn("====> GTO_STATUS_REQUEST Success");
+        //help.log_warn("====> GTO_STATUS_REQUEST Success");
     }
 
     //=========================================================================
@@ -805,8 +805,8 @@ void cllbck_sub_gto_status_response(const slff::gto_status_responseConstPtr &msg
     //---------------------------------
 
     // Menampilkan summary
-    help.log_warn("====> GTO_STATUS_RESPONSE Success");
-    help.log_info("status = %d", gto_status.status);
+    //help.log_warn("====> GTO_STATUS_RESPONSE Success");
+    //help.log_info("status = %d", gto_status.status);
     help_gto_ack_ok();
 }
 
@@ -827,8 +827,8 @@ void cllbck_sub_rfid_status_response(const slff::rfid_status_responseConstPtr &m
     //---------------------------------
 
     // Menampilkan summary
-    help.log_warn("====> RFID_STATUS_RESPONSE Success");
-    help.log_info("status = %d", rfid_status.status);
+    //help.log_warn("====> RFID_STATUS_RESPONSE Success");
+    //help.log_info("status = %d", rfid_status.status);
     help_rfid_ack_ok();
 }
 
@@ -1286,8 +1286,8 @@ void help_gto_ack_ok()
     pub_gto_ack.publish(msg_gto_ack);
 
     // Menampilkan summary
-    help.log_warn("====> GTO_ACK Success");
-    help.log_info("status = %d", msg_gto_ack.status);
+    //help.log_warn("====> GTO_ACK Success");
+    //help.log_info("status = %d", msg_gto_ack.status);
 }
 
 void help_gto_ack_error()
@@ -1297,8 +1297,8 @@ void help_gto_ack_error()
     pub_gto_ack.publish(msg_gto_ack);
 
     // Menampilkan summary
-    help.log_warn("====> GTO_ACK Success");
-    help.log_info("status = %d", msg_gto_ack.status);
+    //help.log_warn("====> GTO_ACK Success");
+    //help.log_info("status = %d", msg_gto_ack.status);
 }
 
 void help_rfid_ack_ok()
@@ -1308,8 +1308,8 @@ void help_rfid_ack_ok()
     pub_rfid_ack.publish(msg_rfid_ack);
 
     // Menampilkan summary
-    help.log_warn("====> RFID_ACK Success");
-    help.log_info("status = %d", msg_rfid_ack.status);
+    //help.log_warn("====> RFID_ACK Success");
+    //help.log_info("status = %d", msg_rfid_ack.status);
 }
 
 void help_rfid_ack_error()
@@ -1319,8 +1319,8 @@ void help_rfid_ack_error()
     pub_rfid_ack.publish(msg_rfid_ack);
 
     // Menampilkan summary
-    help.log_warn("====> RFID_ACK Success");
-    help.log_info("status = %d", msg_rfid_ack.status);
+    //help.log_warn("====> RFID_ACK Success");
+    //help.log_info("status = %d", msg_rfid_ack.status);
 }
 
 void help_cdp(const char *message)
